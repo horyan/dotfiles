@@ -7,58 +7,49 @@
 
 " This line should not be removed as it ensures that various options are
 " properly set to work with the Vim-related packages available in Debian.
-runtime! debian.vim
+runtime! debian.vim             " set nocompatible, among other things
 
-" Uncomment the next line to make Vim more Vi-compatible
-" NOTE: debian.vim sets 'nocompatible'.  Setting 'compatible' changes numerous
-" options, so any other options should be set AFTER setting 'compatible'.
-"set compatible
+"""" Apperance:
+set background=dark             " apply colorscheme for dark background
+colorscheme industry	          " set colorscheme
+set title                       " display file path in the Title bar
 
-" Vim5 and later versions support syntax highlighting. Uncommenting the next
-" RYAN ADDED:
-" BASIC SETUP:
-" enable syntax and plugins (for netrw)
-syntax enable
-filetype plugin on
-" display file path in the Title bar
-set title
-" FINDING FILES:
-" search down into subfolders recursively, provide tab-completion for all file-related tasks
-set path+=**
-" display all matching files when we tab complete
-set wildmenu
-" NOW WE CAN:
-" - Hit tab to :find by partial match
-" - Use * to make it fuzzy
-" CONSIDER:
-" - :ls to see which files are open
-" - :b lets you autocomplete any open buffer
-" TAG JUMPING:
-" create the `tags` file (may need to install ctags first)
+"""" Behavior:
+syntax enable			              " syntax highlighting
+filetype plugin on		          " filetype detection (netrw, indent)
+set number			                " line numbers
+set mouse=a			                " mouse support
+set visualbell                  " replace audio alert with cursor blink
+
+"""" Tab Settings:
+set expandtab		        	      " replace tabs with white spaces
+set tabstop=2		        	      " tab size 2
+set softtabstop=2	      	      " single press to delete tabstop
+set shiftwidth=2                " number spaces for (auto)indent 
+set autoindent			            " apply current indent to next line
+set smartindent			            " match code
+
+"""" Key Bindings:
+" don't skip wrapped lines when moving vertically by visual line
+nmap j gj
+nmap k gk
+
+"""" Finding Files:
+set path+=**                    " drill into subfolders
+set wildmenu                    " :find all matching files
+" consider :ls to see open files
+" :b autocomplete open buffers
+
+"""" Tag Jumping: ^] cursor, g^] ambiguous, ^t previous, ^p/^n back and forth
+" create `tags` file
 command! MakeTags !ctags -R .
 
-" NOW WE CAN:
-" - Use ^] to jump to tag under cursor (^ = ctrl)
-" - Use g^] for ambiguous tags
-" - Use ^t to jump back up the tag stack
-"
-" AUTOCOMPLETE :help ins-completion
-" ^n and ^p to go back and forth, ^e to exit
-
-" TWEAKS FOR BROWSING:
-let g:netrw_banner=0		" disable annoying banner
-let g:netrw_browse_split=4	" open in prior window
-let g:netrw_altv=1		" open splits to the right
-let g:netrw_liststyle=3		" tree view
-" NOW WE CAN:
-" - :edit . a folder to open a file browser
-" - <CR>/v/t to open in an h-split/v-split/tab
-" check |netrw-browse-maps| for more mappings (:help netrw-browse-maps)
-
-
-" If using a dark background within the editing area and syntax highlighting
-" turn on this option as well
-"set background=dark
+" File Browser Settings:        :edit ., <CR> h, v, t tab split, :help
+" netrw-browse-maps
+let g:netrw_banner=0            " remove banner
+let g:netrw_browse_split=4      " open in prior window
+let g:netrw_altv=1	          	" open splits to the right
+let g:netrw_liststyle=3		      " tree view
 
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file
