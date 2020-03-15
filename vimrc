@@ -20,16 +20,19 @@ set mouse=a                     " mouse support
 set visualbell                  " no audio
 
 " Indentation:
-set autoindent                  " apply current indent to next line
-set smartindent                 " match code
+set autoindent                  " match indents on new lines
+set smartindent                 " match code intelligently
 set tabstop=2                   " tab size 2
 set shiftwidth=2                " number spaces for (auto)indent 
-set expandtab                   " replace tabs with white spaces
+set expandtab                   " replace tabs with spaces
 set softtabstop=2               " single press to delete tabstop
 
 " Searching:
 set path+=**                    " drill into subfolders
 set wildmenu                    " :find file, ^n and ^p to scroll through matches
+set incsearch                   " incremental search
+set ignorecase                  " case insensitive search
+set smartcase                   " unless there are capital letter(s)
 " consider :ls to see open files
 " :b autocomplete open buffers
 
