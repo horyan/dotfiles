@@ -4,7 +4,7 @@ nmap j gj
 nmap k gk
 
 " Apperance:
-colorscheme torte               " industry, slate, torte
+colorscheme industry            " industry, slate, torte
 set background=dark             " brighter syntax highlight
 set title                       " file path in Title bar
 
@@ -19,6 +19,12 @@ set number                      " line numbers
 set mouse=a                     " mouse support
 set visualbell                  " no audio
 
+" Statusline:
+set laststatus=2                " status line always visible
+set ruler                       " display row, column, and relative screen position
+set showmode                    " display mode
+set showcmd                     " display pressed keys
+
 " Indentation:
 set autoindent                  " match indents on new lines
 set smartindent                 " match code intelligently
@@ -30,9 +36,9 @@ set softtabstop=2               " single press to delete tabstop
 " Searching:
 set path+=**                    " drill into subfolders
 set wildmenu                    " :find file, ^n and ^p to scroll through matches
-set incsearch                   " incremental search
+set incsearch                   " search as you type
 set ignorecase                  " case insensitive search
-set smartcase                   " unless there are capital letter(s)
+set smartcase                   " ...unless there are capital letter(s)
 " consider :ls to see open files
 " :b autocomplete open buffers
 
@@ -45,8 +51,3 @@ let g:netrw_banner=0            " remove banner
 let g:netrw_browse_split=4      " open in prior window
 let g:netrw_altv=1              " open splits to the right
 let g:netrw_liststyle=3         " tree view
-
-" Source a global configuration file if available
-if filereadable("/etc/vim/vimrc.local")
-  source /etc/vim/vimrc.local
-endif
