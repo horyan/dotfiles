@@ -1,5 +1,6 @@
 " TODO:
 "git branch in statusline
+"tmux.conf support 256 color, remap prefix ctrl+a
 
 " Scrolling:
 set ttyfast                     " smoother redraw when scrolling
