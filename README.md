@@ -1,2 +1,5 @@
-# vimrc settings
-Including my vimrc file mainly for personal reference. These configurations and plugins modify the behavior, appearance, and general settings to help enhance my Vim experience and productivity.
+## Dotfiles (bashrc, vimrc, tmux.conf)
+Development configurations for personal reference.
+
+## Features
+Customize the general settings, behaviors, and appearances of Windows Subsytem for Linux environment to enhance experience and productivity.
